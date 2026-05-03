@@ -772,7 +772,6 @@ const App = () => {
           </div>
           <div className="login-demo">
             <p>📖 力学实验教学 · 支持多实验场景扩展</p>
-            <p>⚡ Matter.js 物理引擎 + Konva 画布 · 碰撞与动量过程可视化</p>
             <p>🔐 账户与操作记录由 Supabase 托管</p>
           </div>
         </div>
