@@ -616,7 +616,7 @@ const App = () => {
   const renderRecordsList = (records, emptyText) => (
     <div className="records-list">
       {records.length === 0 ? (
-        <p className="no-records">{emptyText}</p>
+        emptyText != null ? <p className="no-records">{emptyText}</p> : null
       ) : (
         records.map((record) => (
           <div key={record.id} className="record-item record-item-collision">
@@ -850,9 +850,7 @@ const App = () => {
               </div>
             </div>
             <div className="records-list">
-              {recentRecords.length === 0 ? (
-                <p className="no-records">暂无记录。可先进入动量守恒实验模块完成一次碰撞并保存。</p>
-              ) : (
+              {recentRecords.length === 0 ? null : (
                 recentRecords.map((record) => (
                   <div key={record.id} className="record-item record-item-collision">
                     <span className="record-time">{record.timestamp}</span>
@@ -1718,11 +1716,9 @@ const App = () => {
             </div>
             {renderRecordsList(
               recordsPageRecords,
-              <>
-                {recordFilterType === 'all'
-                  ? '暂无记录。运行实验使两球相撞后，点击「记录实验」保存本轮第一次碰撞的碰前/碰后速度。'
-                  : `当前筛选下暂无记录。可先进入「${getExperimentLabel(recordFilterType)}」完成实验并保存。`}
-              </>
+              recordFilterType === 'all'
+                ? null
+                : `当前筛选下暂无记录。可先进入「${getExperimentLabel(recordFilterType)}」完成实验并保存。`
             )}
           </div>
           <div className="home-section dashboard-section">
